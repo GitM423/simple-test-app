@@ -1,7 +1,7 @@
 import Axios from "axios";
 import React, { Component, useContext } from "react";
-import Layout from "../../components/Layout/Layout.component";
-import UserContext from "../../components/UserContext";
+import Layout from "../../components/Layout/Layout.component.js";
+import UserContext from "../../components/UserContext.component.js";
 class Test extends Component {
   //   static async getInitialProps(ctx) {
 

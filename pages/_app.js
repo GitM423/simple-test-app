@@ -1,8 +1,8 @@
 import React from "react";
 import App, { Container } from "next/app";
 import Router from "next/router";
-import UserContext from "../components/Context/UserContext.component";
-import netlifyAuth from "../components/Auth/NetlifyAuth.component";
+import UserContext from "../components/Context/UserContext.component.js";
+import netlifyAuth from "../components/Auth/NetlifyAuth.component.js";
 
 export default class MyApp extends App {
   state = {
