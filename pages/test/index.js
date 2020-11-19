@@ -70,12 +70,12 @@ class Test extends Component {
 
   render() {
     const { user } = useContext(UserContext);
-    console.log(user);
+    // console.log(user);
     return (
       <Layout>
         <div>
           <h1>This is Test</h1>
-
+          <h3>{user}</h3>
           <div>
             <h2>Add User</h2>
             <input
