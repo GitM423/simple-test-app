@@ -1,0 +1,2 @@
+# Next-on-Netlify Redirects
+/api/getUsers  /.netlify/functions/next_api_getUsers  200
