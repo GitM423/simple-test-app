@@ -68,7 +68,7 @@ class Test extends Component {
   }
 
   render() {
-    const { user, signOut } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     console.log(user);
     return (
       <Layout>
