@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import netlifyAuth from "../../netlifyAuth.js";
+import netlifyAuth from "../../components/Auth/NetlifyAuth.component.js";
+import Layout from "../../components/Layout/Layout.component.js";
 
 const Auth = () => {
   let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated);
@@ -14,7 +15,6 @@ const Auth = () => {
 
   let login = () => {
     netlifyAuth.authenticate((user) => {
-      console.log(user);
       setLoggedIn(!!user);
       setUser(user);
       netlifyAuth.closeModal();
@@ -29,7 +29,7 @@ const Auth = () => {
   };
 
   return (
-    <>
+    <Layout>
       {loggedIn ? (
         <div>
           You are logged in!
@@ -40,7 +40,7 @@ const Auth = () => {
       ) : (
         <button onClick={login}>Log in here.</button>
       )}
-    </>
+    </Layout>
   );
 };
 

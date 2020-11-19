@@ -1,7 +1,7 @@
 import Axios from "axios";
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import Layout from "../../components/Layout/Layout.component";
-
+import UserContext from "../../components/UserContext";
 class Test extends Component {
   //   static async getInitialProps(ctx) {
 
@@ -68,7 +68,8 @@ class Test extends Component {
   }
 
   render() {
-    console.log(this.state.users);
+    const { user, signOut } = useContext(UserContext);
+    console.log(user);
     return (
       <Layout>
         <div>

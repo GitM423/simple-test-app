@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.0",
+    "netlify-cli": "^2.68.7",
     "netlify-identity-widget": "^1.9.1",
     "next": "^10.0.1",
     "next-on-netlify": "^2.6.1",

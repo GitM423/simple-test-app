@@ -1,10 +1,32 @@
-import { useEffect, useState } from "react";
-import netlifyAuth from "../netlifyAuth.js";
+import netlifyIdentity from "netlify-identity-widget";
 
-let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated);
+const netlifyAuth = {
+  isAuthenticated: false,
+  user: null,
+  initialize(callback) {
+    window.netlifyIdentity = netlifyIdentity;
+    netlifyIdentity.on("init", (user) => {
+      callback(user);
+    });
+    netlifyIdentity.init();
+  },
+  authenticate(callback) {
+    this.isAuthenticated = true;
+    netlifyIdentity.open();
+    netlifyIdentity.on("login", (user) => {
+      this.user = user;
+      callback(user);
+      netlifyIdentity.close();
+    });
+  },
+  signout(callback) {
+    this.isAuthenticated = false;
+    netlifyIdentity.logout();
+    netlifyIdentity.on("logout", () => {
+      this.user = null;
+      callback();
+    });
+  },
+};
 
-useEffect(() => {
-  netlifyAuth.initialize((user) => {
-    setLoggedIn(!!user);
-  });
-}, [loggedIn]);
+export default netlifyAuth;
