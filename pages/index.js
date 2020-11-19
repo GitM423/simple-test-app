@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Layout from "../components/Layout/Layout.component";
+import Layout from "../components/Layout/Layout.component.js";
 
 class Home extends Component {
   constructor(props) {
