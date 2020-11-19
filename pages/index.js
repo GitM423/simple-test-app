@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Layout from "../components/Layout/Layout.component";
-import netlifyAuth from "../netlifyAuth.js";
 
 class Home extends Component {
   constructor(props) {
