@@ -14,6 +14,7 @@ const Auth = () => {
 
   let login = () => {
     netlifyAuth.authenticate((user) => {
+      console.log(user);
       setLoggedIn(!!user);
       setUser(user);
       netlifyAuth.closeModal();
