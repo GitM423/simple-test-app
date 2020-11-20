@@ -32,13 +32,7 @@ const MyApp = ({ Component, pageProps }) => {
   };
 
   return (
-    <UserContext.Provider
-      value={{
-        user: user,
-        login: login,
-        logout: logout,
-      }}
-    >
+    <UserContext.Provider value={{ user, login, logout }}>
       <Component {...pageProps} />
     </UserContext.Provider>
   );
