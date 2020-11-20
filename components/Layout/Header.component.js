@@ -22,6 +22,11 @@ class Header extends Component {
                 <a>Auth</a>
               </Link>
             </li>
+            <li>
+              <Link href="/user">
+                <a>User</a>
+              </Link>
+            </li>
           </ul>
         </nav>
       </header>
