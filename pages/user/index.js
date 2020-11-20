@@ -6,7 +6,7 @@ import Layout from "../../components/Layout/Layout.component";
 
 const User = () => {
   const { user, login, logout } = useContext(UserContext);
-  console.log(user);
+  // console.log(user);
   return (
     <Layout>
       <p>
