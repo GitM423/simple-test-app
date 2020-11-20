@@ -10,7 +10,7 @@ const User = () => {
   return (
     <Layout>
       <p>
-        Hello, <strong>{user}</strong>
+        Hello, <strong>{user?.user_metadata.full_name}</strong>
       </p>
       <p>Welcome to our app</p>
       <button className="btn" onClick={login}>
