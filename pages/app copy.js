@@ -5,7 +5,13 @@ import Router from "next/router";
 import UserContext from "../components/Context/UserContext.component.js";
 import netlifyAuth from "../components/Auth/NetlifyAuth.component.js";
 
-const MyApp = ({ Component, pageProps }) => {
+export default class MyApp extends App {
+  state = {
+    loggedIn: netlifyAuth.isAuthenticated,
+    user: null,
+  };
+
+  
   let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated);
   let [user, setUser] = useState(null);
 
@@ -16,32 +22,39 @@ const MyApp = ({ Component, pageProps }) => {
     });
   }, [loggedIn]);
 
-  let login = () => {
+  login = () => {
     netlifyAuth.authenticate((user) => {
-      setLoggedIn(!!user);
-      setUser(user);
+      this.setState({
+        loggedIn: !!user,
+        user: user,
+      });
+
       netlifyAuth.closeModal();
     });
   };
 
-  let logout = () => {
+  logout = () => {
     netlifyAuth.signout(() => {
-      setLoggedIn(false);
-      setUser(null);
+      this.setState({
+        loggedIn: false,
+        user: null,
+      });
     });
   };
 
-  return (
-    <UserContext.Provider
-      value={{
-        user: user,
-        login: login,
-        logout: logout,
-      }}
-    >
-      <Component {...pageProps} />
-    </UserContext.Provider>
-  );
-};
+  render() {
+    const { Component, pageProps } = this.props;
 
-export default MyApp;
+    return (
+      <UserContext.Provider
+        value={{
+          user: this.state.user,
+          login: this.login,
+          logout: this.logout,
+        }}
+      >
+        <Component {...pageProps} />
+      </UserContext.Provider>
+    );
+  }
+}
