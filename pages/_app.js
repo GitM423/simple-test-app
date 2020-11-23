@@ -25,20 +25,20 @@ const MyApp = ({ Component, pageProps }) => {
     netlifyAuth.authenticate((user) => {
       setLoggedIn(!!user);
       setUser(user);
+      Router.push("/dashboard");
     });
-    Router.push("/dashboard");
   };
 
   let logout = () => {
     netlifyAuth.signout(() => {
       setLoggedIn(false);
       setUser(null);
+      Router.push("/");
     });
-    Router.push("/");
   };
 
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ loggedIn, user, login, logout }}>
       <Component {...pageProps} />
     </UserContext.Provider>
   );

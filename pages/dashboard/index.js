@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { withRouter } from "next/router";
 
@@ -6,12 +6,12 @@ import UserContext from "../../components/Context/UserContext.component";
 import Layout from "../../components/Layout/Layout.component";
 
 const Dashboard = () => {
-  const { user } = useContext(UserContext);
-  console.log(user);
+  const { loggedIn, user } = useContext(UserContext);
+
   return (
     <Layout>
       <p>
-        Hello, <strong>{user?.user_metadata.full_name}</strong>
+        Hello, <strong>{loggedIn && user?.user_metadata.full_name}</strong>
       </p>
       <p>Welcome to our app</p>
     </Layout>
