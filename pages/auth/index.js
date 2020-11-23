@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+
+import { withRouter } from "next/router";
+
 import netlifyAuth from "../../components/Auth/NetlifyAuth.component.js";
 import Layout from "../../components/Layout/Layout.component.js";
 
@@ -44,4 +47,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default withRouter(Auth);

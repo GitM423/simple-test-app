@@ -1,5 +1,8 @@
 import Axios from "axios";
 import React, { Component, useContext } from "react";
+
+import { withRouter } from "next/router";
+
 import Layout from "../../components/Layout/Layout.component.js";
 import UserContext from "../../components/Context/UserContext.component.js";
 
@@ -134,4 +137,4 @@ class Test extends Component {
   }
 }
 
-export default Test;
+export default withRouter(Test);

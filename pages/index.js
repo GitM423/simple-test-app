@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+
+import { withRouter } from "next/router";
+
 import Layout from "../components/Layout/Layout.component.js";
 
 class Home extends Component {
@@ -17,4 +20,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);

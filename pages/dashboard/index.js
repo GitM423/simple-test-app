@@ -1,5 +1,7 @@
 import { useContext } from "react";
 
+import { withRouter } from "next/router";
+
 import UserContext from "../../components/Context/UserContext.component";
 import Layout from "../../components/Layout/Layout.component";
 
@@ -16,4 +18,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default withRouter(Dashboard);

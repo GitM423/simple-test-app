@@ -1,5 +1,7 @@
 import { useContext } from "react";
 
+import { withRouter } from "next/router";
+
 import UserContext from "../../components/Context/UserContext.component";
 import Layout from "../../components/Layout/Layout.component";
 // import UserContext from "../components/UserContext";
@@ -23,4 +25,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default withRouter(User);
