@@ -17,31 +17,19 @@ const MyApp = ({ Component, pageProps }) => {
   }, [loggedIn]);
 
   let login = () => {
-    netlifyAuth
-      .authenticate((user) => {
-        setLoggedIn(!!user);
-        setUser(user);
-      })
-      .then(() => {
-        Router.push({ pathname: "/dashboard" });
-      })
-      .catch(() => {
-        Router.push({ pathname: "/", query: { msg: "Error" } });
-      });
+    netlifyAuth.authenticate((user) => {
+      setLoggedIn(!!user);
+      setUser(user);
+    });
+    Router.push({ pathname: "/dashboard" });
   };
 
   let logout = () => {
-    netlifyAuth
-      .signout(() => {
-        setLoggedIn(false);
-        setUser(null);
-      })
-      .then(() => {
-        Router.push({ pathname: "/" });
-      })
-      .catch(() => {
-        Router.push({ pathname: "/", query: { msg: "Error" } });
-      });
+    netlifyAuth.signout(() => {
+      setLoggedIn(false);
+      setUser(null);
+    });
+    Router.push({ pathname: "/" });
   };
 
   return (
