@@ -9,7 +9,9 @@ const Dashboard = () => {
   const { loggedIn, user } = useContext(UserContext);
 
   useEffect(() => {
-    !loggedIn && Router.push("/");
+    if (!loggedIn) {
+      Router.push("/");
+    }
   });
 
   return (

@@ -26,7 +26,9 @@ const MyApp = ({ Component, pageProps }) => {
       setLoggedIn(!!user);
       setUser(user);
     });
-    loggedIn && Router.push("/dashboard");
+    if (loggedIn) {
+      Router.push("/dashboard");
+    }
   };
 
   let logout = async () => {
