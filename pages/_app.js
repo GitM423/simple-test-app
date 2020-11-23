@@ -22,7 +22,7 @@ const MyApp = ({ Component, pageProps }) => {
       setLoggedIn(!!user);
       setUser(user);
     });
-    router.push({ pathname: "/dashboard" });
+    router.push("/dashboard");
   };
 
   let logout = () => {
@@ -30,7 +30,7 @@ const MyApp = ({ Component, pageProps }) => {
       setLoggedIn(false);
       setUser(null);
     });
-    router.push({ pathname: "/" });
+    router.push("/");
   };
 
   return (
