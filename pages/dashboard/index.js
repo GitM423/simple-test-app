@@ -8,6 +8,10 @@ import Layout from "../../components/Layout/Layout.component";
 const Dashboard = () => {
   const { loggedIn, user } = useContext(UserContext);
 
+  useEffect(() => {
+    !loggedIn && Router.push("/");
+  });
+
   return (
     <Layout>
       <p>

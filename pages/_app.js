@@ -21,20 +21,20 @@ const MyApp = ({ Component, pageProps }) => {
     });
   }, [loggedIn]);
 
-  let login = () => {
-    netlifyAuth.authenticate((user) => {
+  let login = async () => {
+    await netlifyAuth.authenticate((user) => {
       setLoggedIn(!!user);
       setUser(user);
-      Router.push("/dashboard");
     });
+    loggedIn && Router.push("/dashboard");
   };
 
-  let logout = () => {
-    netlifyAuth.signout(() => {
+  let logout = async () => {
+    await netlifyAuth.signout(() => {
       setLoggedIn(false);
       setUser(null);
-      Router.push("/");
     });
+    Router.push("/");
   };
 
   return (
