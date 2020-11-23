@@ -20,7 +20,7 @@ const MyApp = ({ Component, pageProps }) => {
     netlifyAuth.authenticate((user) => {
       setLoggedIn(!!user);
       setUser(user);
-      netlifyAuth.closeModal();
+      Router.push("/dashboard");
     });
   };
 
@@ -28,6 +28,7 @@ const MyApp = ({ Component, pageProps }) => {
     netlifyAuth.signout(() => {
       setLoggedIn(false);
       setUser(null);
+      Router.push("/");
     });
   };
 
