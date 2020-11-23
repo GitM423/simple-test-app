@@ -5,14 +5,14 @@ import { withRouter } from "next/router";
 import UserContext from "../../components/Context/UserContext.component";
 import Layout from "../../components/Layout/Layout.component";
 
-const Dashboard = () => {
+const Dashboard = async () => {
   const { loggedIn, user } = useContext(UserContext);
 
-  useEffect(() => {
+  await useEffect(() => {
     if (!loggedIn) {
       Router.push("/");
     }
-  });
+  }, [loggedIn]);
 
   return (
     <Layout>
