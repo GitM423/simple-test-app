@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { useRouter } from "next/app";
+import Router from "next/router";
 // import Router from "next/router";
 import UserContext from "../components/Context/UserContext.component.js";
 import netlifyAuth from "../components/Auth/NetlifyAuth.component.js";
 
 const MyApp = ({ Component, pageProps }) => {
-  const router = useRouter();
   let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated);
   let [user, setUser] = useState(null);
 
@@ -21,16 +20,16 @@ const MyApp = ({ Component, pageProps }) => {
     netlifyAuth.authenticate((user) => {
       setLoggedIn(!!user);
       setUser(user);
+      Router.push("/dashboard");
     });
-    router.push("/dashboard");
   };
 
   let logout = () => {
     netlifyAuth.signout(() => {
       setLoggedIn(false);
       setUser(null);
+      Router.push("/");
     });
-    router.push("/");
   };
 
   return (
